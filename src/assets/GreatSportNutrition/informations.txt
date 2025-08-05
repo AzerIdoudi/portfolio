@@ -1,0 +1,20 @@
+ I've built and deployed a complete management solution for GSN at greatsportnutrition.com.tn 
+This full-stack project combines a powerful React frontend with a Node.js/Express backend and MongoDB database.
+Key Features:
+💻 Responsive admin dashboard for complete business management
+🏋️‍♀️ Custom athlete partnership system with commission tracking and promo codes
+🛍️ Product catalog with dynamic filtering and search capabilities
+📊 Comprehensive order processing and inventory management
+🖼️ Customizable landing page with dynamic content management
+📱 Fully responsive design for all devices
+Technical Highlights:
+🔧 Built with the MERN stack (MongoDB, Express, React, Node.js)
+🚀 Deployed on DigitalOcean droplet with Nginx as reverse proxy
+🔒 Implemented HTTPS with Let's Encrypt SSL certificates
+🌐 Custom domain configuration with DNS A records pointing to the droplet IP
+📦 RESTful API architecture with JWT authentication
+⚡ PM2 process manager for Node.js application reliability
+Deployment Process:
+The deployment involved configuring a DigitalOcean Ubuntu droplet, setting up Nginx as a reverse proxy to handle multiple services, obtaining and auto-renewing SSL certificates through "Let's Encrypt", and configuring the DNS records for greatsportnutrition.com.tn to point to our server.
+This project showcases my ability to deliver end-to-end solutions that combine business requirements with technical implementation - from development all the way through production deployment and security hardening.
+Special thanks to the GSN Supplements team for their collaboration throughout this journey!

@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #ffffff;
+  background: #0a0a0a;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: 
+    radial-gradient(ellipse at top left, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at top right, rgba(0, 162, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(255, 0, 136, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(136, 0, 255, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  animation: aurora-shift 20s ease-in-out infinite;
+}
+
+@keyframes aurora-shift {
+  0%, 100% {
+    background: 
+      radial-gradient(ellipse at top left, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at top right, rgba(0, 162, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(255, 0, 136, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(136, 0, 255, 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  }
+  25% {
+    background: 
+      radial-gradient(ellipse at top left, rgba(136, 0, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at top right, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(0, 162, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(255, 0, 136, 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  }
+  50% {
+    background: 
+      radial-gradient(ellipse at top left, rgba(255, 0, 136, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at top right, rgba(136, 0, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(0, 162, 255, 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  }
+  75% {
+    background: 
+      radial-gradient(ellipse at top left, rgba(0, 162, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at top right, rgba(255, 0, 136, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(136, 0, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  }
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section styling for modern responsive layout */
+#hero,
+#about,
+#education,
+#projects {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0rem 0;
+}
+
+#footer {
+  position: relative;
+  width: 100%;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  #hero,
+  #about,
+  #education,
+  #projects {
+
+  }
+}
+
+@media (max-width: 768px) {
+  #hero,
+  #about,
+  #education,
+  #projects {
+
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero,
+  #about,
+  #education,
+  #projects {
+
+  }
+}
+
+/* Section Navigation Indicator */
+.section-indicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.indicator-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.indicator-dot.active {
+  background: linear-gradient(45deg, #00ff88, #00a2ff);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  transform: scale(1.3);
+}
+
+/* Aurora gradient overlays for sections */
+.aurora-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(136, 0, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 162, 255, 0.4) 0%, transparent 50%);
+  animation: aurora-dance 15s ease-in-out infinite;
+}
+
+@keyframes aurora-dance {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  33% { transform: scale(1.1) rotate(120deg); }
+  66% { transform: scale(0.9) rotate(240deg); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

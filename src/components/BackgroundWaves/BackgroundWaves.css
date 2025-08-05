@@ -1,0 +1,118 @@
+.background-waves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  opacity: 0.08;
+  background: conic-gradient(from 0deg, 
+    rgba(0, 255, 136, 0.3), 
+    rgba(0, 162, 255, 0.3), 
+    rgba(136, 0, 255, 0.3), 
+    rgba(255, 0, 136, 0.3), 
+    rgba(0, 255, 136, 0.3));
+  animation: float 8s ease-in-out infinite;
+  clip-path: polygon(0% 50%, 25% 40%, 50% 60%, 75% 35%, 100% 55%, 100% 100%, 0% 100%);
+}
+
+.wave1 {
+  top: -50%;
+  left: -50%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+  background: conic-gradient(from 45deg, 
+    rgba(0, 255, 136, 0.2), 
+    rgba(136, 0, 255, 0.2), 
+    rgba(0, 162, 255, 0.2), 
+    rgba(0, 255, 136, 0.2));
+  clip-path: polygon(0% 40%, 30% 20%, 60% 50%, 90% 25%, 100% 45%, 100% 100%, 0% 100%);
+}
+
+.wave2 {
+  top: -30%;
+  right: -50%;
+  animation-delay: -2s;
+  animation-duration: 15s;
+  background: conic-gradient(from 90deg, 
+    rgba(255, 0, 136, 0.2), 
+    rgba(0, 162, 255, 0.2), 
+    rgba(0, 255, 136, 0.2), 
+    rgba(255, 0, 136, 0.2));
+  clip-path: polygon(0% 60%, 35% 30%, 70% 55%, 100% 40%, 100% 100%, 0% 100%);
+}
+
+.wave3 {
+  bottom: -50%;
+  left: -30%;
+  animation-delay: -4s;
+  animation-duration: 18s;
+  background: conic-gradient(from 180deg, 
+    rgba(0, 162, 255, 0.2), 
+    rgba(255, 0, 136, 0.2), 
+    rgba(136, 0, 255, 0.2), 
+    rgba(0, 162, 255, 0.2));
+  clip-path: polygon(0% 45%, 40% 25%, 80% 50%, 100% 30%, 100% 100%, 0% 100%);
+}
+
+.wave4 {
+  bottom: -30%;
+  right: -30%;
+  animation-delay: -6s;
+  animation-duration: 10s;
+  background: conic-gradient(from 270deg, 
+    rgba(136, 0, 255, 0.2), 
+    rgba(0, 255, 136, 0.2), 
+    rgba(255, 0, 136, 0.2), 
+    rgba(136, 0, 255, 0.2));
+  clip-path: polygon(0% 35%, 25% 55%, 55% 25%, 85% 45%, 100% 35%, 100% 100%, 0% 100%);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) rotate(180deg) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, -10px) rotate(270deg) scale(1.05);
+  }
+}
+
+/* Aurora particles */
+.wave::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: shimmer 8s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.1; transform: scale(1.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave,
+  .wave::before {
+    animation: none;
+  }
+}
