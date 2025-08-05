@@ -23,7 +23,6 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus('')
 
-    // Simulate form submission (replace with actual form handler)
     try {
       await new Promise(resolve => setTimeout(resolve, 1000))
       setSubmitStatus('success')

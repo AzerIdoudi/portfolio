@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Projects.css'
 
-// Project images from public assets
-// Great Sport Nutrition
 const gsnLanding = '/assets/GreatSportNutrition/gsnLandingPage.png'
 const gsnAdmin = '/assets/GreatSportNutrition/adminLandingImages.png'
 const gsnAdminProduct = '/assets/GreatSportNutrition/adminProduct.png'
@@ -11,7 +9,6 @@ const gsnShop = '/assets/GreatSportNutrition/shopPage.png'
 const gsnShopProduct = '/assets/GreatSportNutrition/shopProduct.png'
 const gsnUsersManagement = '/assets/GreatSportNutrition/usersManagement.png'
 
-// Instapickk
 const instapickkLanding = '/assets/Instapickk/LandingPage.jpg'
 const instapickkProjects = '/assets/Instapickk/projects.jpg'
 const instapickkCalendar = '/assets/Instapickk/calendar.jpg'
@@ -19,14 +16,12 @@ const instapickkCreateProject = '/assets/Instapickk/createProject.jpg'
 const instapickkTasksAndComments = '/assets/Instapickk/tasksAndComments.jpg'
 const instapickkUserDashboard = '/assets/Instapickk/userDashboard.jpg'
 
-// EazyCarpooling
 const eazyVideo = '/assets/eazyCarpooling/video.mp4'
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (activeProject !== null) {
       document.body.style.overflow = 'hidden'
@@ -34,13 +29,11 @@ const Projects = () => {
       document.body.style.overflow = 'unset'
     }
 
-    // Cleanup function to restore scrolling when component unmounts
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [activeProject])
 
-  // Reset image index when opening a new project
   useEffect(() => {
     setCurrentImageIndex(0)
   }, [activeProject])
@@ -121,7 +114,7 @@ const Projects = () => {
         "Trip management and deletion",
         "Account settings and profile management"
       ],
-      images: [eazyVideo], // Video file for mobile app demo
+      images: [eazyVideo],
       githubUrl: "#",
       category: "Mobile App"
     }

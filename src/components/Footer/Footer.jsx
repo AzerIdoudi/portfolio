@@ -12,19 +12,16 @@ const Footer = () => {
     const today = new Date().toDateString()
 
     if (!currentCount) {
-      // First time visitor
       localStorage.setItem('visitorCount', '1')
       localStorage.setItem('lastVisit', today)
       setVisitorCount(1)
     } else {
       if (lastVisit !== today) {
-        // New day, increment counter
         const newCount = parseInt(currentCount) + 1
         localStorage.setItem('visitorCount', newCount.toString())
         localStorage.setItem('lastVisit', today)
         setVisitorCount(newCount)
       } else {
-        // Same day, use existing count
         setVisitorCount(parseInt(currentCount))
       }
     }

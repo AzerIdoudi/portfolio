@@ -23,26 +23,22 @@ function App() {
 
       e.preventDefault()
 
-      // Clear existing timeout
       if (wheelTimeout) {
         clearTimeout(wheelTimeout)
       }
 
-      // Set timeout to detect end of wheel scrolling
       wheelTimeout = setTimeout(() => {
         const delta = e.deltaY
-        const threshold = 50 // Minimum scroll amount to trigger section change
+        const threshold = 50
 
         if (Math.abs(delta) > threshold) {
           if (delta > 0 && currentSection < sections.length - 1) {
-            // Scroll down
             scrollToSection(currentSection + 1)
           } else if (delta < 0 && currentSection > 0) {
-            // Scroll up
             scrollToSection(currentSection - 1)
           }
         }
-      }, 50) // Debounce wheel events
+      }, 50)
     }
 
     const scrollToSection = (sectionIndex) => {
@@ -58,17 +54,14 @@ function App() {
           block: 'start'
         })
 
-        // Reset scrolling flag after animation
         setTimeout(() => {
           setIsScrolling(false)
         }, 1000)
       }
     }
 
-    // Add wheel event listener
     window.addEventListener('wheel', handleWheel, { passive: false })
 
-    // Handle keyboard navigation
     const handleKeyDown = (e) => {
       if (isScrolling) return
 
@@ -93,7 +86,6 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown)
 
-    // Cleanup
     return () => {
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('keydown', handleKeyDown)
@@ -103,7 +95,6 @@ function App() {
     }
   }, [currentSection, isScrolling, sections.length])
 
-  // Handle intersection observer for current section detection
   useEffect(() => {
     const observerOptions = {
       root: null,
