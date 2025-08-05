@@ -1,16 +1,30 @@
 import { useState, useEffect } from 'react'
 import './Projects.css'
 
-// Import project images
-import gsnLanding from '../../assets/GreatSportNutrition/gsnLandingPage.png'
-import gsnAdmin from '../../assets/GreatSportNutrition/adminLandingImages.png'
-import gsnShop from '../../assets/GreatSportNutrition/shopPage.png'
-import instapickkLanding from '../../assets/Instapickk/LandingPage.jpg'
-import instapickkProjects from '../../assets/Instapickk/projects.jpg'
-import instapickkCalendar from '../../assets/Instapickk/calendar.jpg'
+// Project images from public assets
+// Great Sport Nutrition
+const gsnLanding = '/assets/GreatSportNutrition/gsnLandingPage.png'
+const gsnAdmin = '/assets/GreatSportNutrition/adminLandingImages.png'
+const gsnAdminProduct = '/assets/GreatSportNutrition/adminProduct.png'
+const gsnCheckout = '/assets/GreatSportNutrition/checkout.png'
+const gsnShop = '/assets/GreatSportNutrition/shopPage.png'
+const gsnShopProduct = '/assets/GreatSportNutrition/shopProduct.png'
+const gsnUsersManagement = '/assets/GreatSportNutrition/usersManagement.png'
+
+// Instapickk
+const instapickkLanding = '/assets/Instapickk/LandingPage.jpg'
+const instapickkProjects = '/assets/Instapickk/projects.jpg'
+const instapickkCalendar = '/assets/Instapickk/calendar.jpg'
+const instapickkCreateProject = '/assets/Instapickk/createProject.jpg'
+const instapickkTasksAndComments = '/assets/Instapickk/tasksAndComments.jpg'
+const instapickkUserDashboard = '/assets/Instapickk/userDashboard.jpg'
+
+// EazyCarpooling
+const eazyVideo = '/assets/eazyCarpooling/video.mp4'
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -25,6 +39,31 @@ const Projects = () => {
       document.body.style.overflow = 'unset'
     }
   }, [activeProject])
+
+  // Reset image index when opening a new project
+  useEffect(() => {
+    setCurrentImageIndex(0)
+  }, [activeProject])
+
+  const nextImage = () => {
+    if (activeProject !== null && filteredProjects[activeProject]) {
+      setCurrentImageIndex((prev) => 
+        prev === filteredProjects[activeProject].images.length - 1 ? 0 : prev + 1
+      )
+    }
+  }
+
+  const prevImage = () => {
+    if (activeProject !== null && filteredProjects[activeProject]) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? filteredProjects[activeProject].images.length - 1 : prev - 1
+      )
+    }
+  }
+
+  const goToImage = (index) => {
+    setCurrentImageIndex(index)
+  }
 
   const projects = [
     {
@@ -42,7 +81,7 @@ const Projects = () => {
         "Customizable landing page with dynamic content management",
         "Fully responsive design for all devices"
       ],
-      images: [gsnLanding, gsnAdmin, gsnShop],
+      images: [gsnLanding, gsnAdmin, gsnShop, gsnAdminProduct, gsnCheckout, gsnShopProduct, gsnUsersManagement],
       liveUrl: "https://greatsportnutrition.com.tn",
       category: "Full-Stack Web"
     },
@@ -62,7 +101,7 @@ const Projects = () => {
         "In-app notifications",
         "Activity log for full project visibility"
       ],
-      images: [instapickkLanding, instapickkProjects, instapickkCalendar],
+      images: [instapickkLanding, instapickkProjects, instapickkCalendar, instapickkCreateProject, instapickkTasksAndComments, instapickkUserDashboard],
       githubUrl: "#",
       category: "Full-Stack Web"
     },
@@ -82,7 +121,7 @@ const Projects = () => {
         "Trip management and deletion",
         "Account settings and profile management"
       ],
-      images: [gsnLanding], // Placeholder since video file exists
+      images: [eazyVideo], // Video file for mobile app demo
       githubUrl: "#",
       category: "Mobile App"
     }
@@ -121,18 +160,33 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div key={project.id} className="project-card">
               <div className="project-image">
-                <img 
-                  src={project.images[0]} 
-                  alt={`${project.title} screenshot`}
-                  className="project-img"
-                />
+                {project.images[0].endsWith('.mp4') ? (
+                  <video 
+                    src={project.images[0]} 
+                    alt={`${project.title} demo video`}
+                    className="project-img"
+                    muted
+                    loop
+                    autoPlay
+                  />
+                ) : (
+                  <img 
+                    src={project.images[0]} 
+                    alt={`${project.title} screenshot`}
+                    className="project-img"
+                  />
+                )}
                 <div className="project-overlay">
-                  <button
-                    onClick={() => setActiveProject(index)}
-                    className="view-details-btn"
-                  >
-                    View Details
-                  </button>
+                  <div className="overlay-content">
+                    <h4 className="overlay-title">{project.title}</h4>
+                    <p className="overlay-subtitle">{project.subtitle}</p>
+                    <button
+                      onClick={() => setActiveProject(index)}
+                      className="view-details-btn"
+                    >
+                      <span>View Details</span>
+                    </button>
+                  </div>
                 </div>
               </div>
               
@@ -194,14 +248,84 @@ const Projects = () => {
               
               <div className="modal-project">
                 <div className="modal-images">
-                  {filteredProjects[activeProject]?.images.map((img, imgIndex) => (
-                    <img 
-                      key={imgIndex}
-                      src={img} 
-                      alt={`${filteredProjects[activeProject].title} screenshot ${imgIndex + 1}`}
-                      className="modal-img"
-                    />
-                  ))}
+                  <div className="image-carousel">
+                    <div className="main-image-container">
+                      {/* Check if current item is a video */}
+                      {filteredProjects[activeProject]?.images[currentImageIndex].endsWith('.mp4') ? (
+                        <video 
+                          src={filteredProjects[activeProject]?.images[currentImageIndex]} 
+                          alt={`${filteredProjects[activeProject]?.title} demo video`}
+                          className="modal-img main-image"
+                          controls
+                          autoPlay
+                          muted
+                          loop
+                        />
+                      ) : (
+                        <img 
+                          src={filteredProjects[activeProject]?.images[currentImageIndex]} 
+                          alt={`${filteredProjects[activeProject]?.title} screenshot ${currentImageIndex + 1}`}
+                          className="modal-img main-image"
+                        />
+                      )}
+                      
+                      {/* Navigation Arrows */}
+                      {filteredProjects[activeProject]?.images.length > 1 && (
+                        <>
+                          <button 
+                            className="nav-arrow nav-prev" 
+                            onClick={prevImage}
+                            aria-label="Previous image"
+                          >
+                            ‹
+                          </button>
+                          <button 
+                            className="nav-arrow nav-next" 
+                            onClick={nextImage}
+                            aria-label="Next image"
+                          >
+                            ›
+                          </button>
+                        </>
+                      )}
+                      
+                      {/* Image Counter */}
+                      {filteredProjects[activeProject]?.images.length > 1 && (
+                        <div className="image-counter">
+                          {currentImageIndex + 1} / {filteredProjects[activeProject]?.images.length}
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Thumbnail Navigation */}
+                    {filteredProjects[activeProject]?.images.length > 1 && (
+                      <div className="thumbnail-nav">
+                        {filteredProjects[activeProject]?.images.map((item, imgIndex) => (
+                          <button
+                            key={imgIndex}
+                            className={`thumbnail ${imgIndex === currentImageIndex ? 'active' : ''}`}
+                            onClick={() => goToImage(imgIndex)}
+                          >
+                            {item.endsWith('.mp4') ? (
+                              <div className="video-thumbnail">
+                                <video 
+                                  src={item} 
+                                  alt={`Video thumbnail ${imgIndex + 1}`}
+                                  muted
+                                />
+                                <div className="play-icon">▶</div>
+                              </div>
+                            ) : (
+                              <img 
+                                src={item} 
+                                alt={`Thumbnail ${imgIndex + 1}`}
+                              />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
                 
                 <div className="modal-info">

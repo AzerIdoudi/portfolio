@@ -1,4 +1,4 @@
-import profileImage from '../../assets/AzerIdoudiImage.jpg'
+const profileImage = '/assets/AzerIdoudiImage.jpg'
 import './Hero.css'
 
 const Hero = () => {

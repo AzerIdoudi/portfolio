@@ -34,6 +34,8 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.01em;
   background: linear-gradient(45deg, #4facfe, #00f2fe);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,6 +47,7 @@
   font-weight: 600;
   margin-bottom: 1rem;
   color: #ffffff;
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-section p {

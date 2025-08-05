@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../../assets/background5.jpg');
+  background-image: url('/assets/background5.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -35,6 +35,8 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
   background: linear-gradient(45deg, #00ff88, #00a2ff, #8800ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

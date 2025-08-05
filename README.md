@@ -1,12 +1,88 @@
-# React + Vite
+# Azer Idoudi - Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website showcasing my projects and skills in web and mobile development.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit the live website: [azer-idoudi.tech](https://azer-idoudi.tech)
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** - Frontend framework
+- **Vite** - Build tool and development server
+- **CSS3** - Styling with modern features
+- **GitHub Pages** - Hosting platform
+
+## 📱 Features
+
+- Responsive design for all devices
+- Interactive project showcase with image carousels
+- Modern UI with gradient effects and animations
+- Video support for mobile app demonstrations
+- Smooth scrolling navigation
+- Professional project presentation
+
+## 🏗️ Local Development
+
+1. Clone the repository:
+```bash
+git clone https://github.com/AzerIdoudi/portfolio.git
+cd portfolio
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## 🚀 Deployment
+
+This project is configured for GitHub Pages deployment with a custom domain.
+
+### Deploy to GitHub Pages:
+```bash
+npm run deploy
+```
+
+### Build for production:
+```bash
+npm run build
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Hero/          # Landing section
+│   ├── About/         # About me section
+│   ├── Projects/      # Project showcase
+│   ├── Education/     # Education timeline
+│   └── Contact/       # Contact information
+├── assets/            # Images and media files
+└── App.jsx           # Main app component
+```
+
+## 🎨 Customization
+
+- Update project information in `src/components/Projects/Projects.jsx`
+- Modify personal information in the respective component files
+- Replace images in the `public/assets/` folder
+- Customize styling in the component CSS files
+
+## 📞 Contact
+
+- **Email**: [your-email@example.com]
+- **LinkedIn**: [Your LinkedIn Profile]
+- **GitHub**: [https://github.com/AzerIdoudi](https://github.com/AzerIdoudi)
+
+---
+
+© 2025 Azer Idoudi. All rights reserved.

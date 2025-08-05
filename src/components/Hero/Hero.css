@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../../assets/background1.png');
+  background-image: url('/assets/background1.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -95,6 +95,8 @@
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .gradient-text {
@@ -117,18 +119,22 @@
 
 .hero-subtitle {
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 1.5rem;
   opacity: 0.9;
   color: rgba(0, 255, 136, 0.8);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 .hero-description {
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
-  opacity: 0.8;
+  opacity: 0.85;
   max-width: 500px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 .hero-cta {
@@ -148,6 +154,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
   min-width: 150px;
   position: relative;
   overflow: hidden;
