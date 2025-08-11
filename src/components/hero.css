@@ -1,0 +1,156 @@
+section {
+    background-color: rgb(241, 236, 228);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1000px;
+  position: relative;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content > div:first-child {
+  flex-shrink: 0;
+}
+
+.content img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000000;
+  transition: all 0.3s ease;
+}
+
+.content img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.content > div:last-child {
+  flex: 1;
+  color: #000000;
+}
+
+.content h1 {
+  font-size: 3.2rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.name {
+  font-weight: 600;
+  color: #000000;
+  position: relative;
+}
+
+.name::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.content h1:hover .name::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.content p {
+  font-size: 1.1rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+    padding: 0 1rem;
+  }
+  
+  .content img {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .content h1 {
+    font-size: 2.4rem;
+  }
+  
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    gap: 2rem;
+  }
+  
+  .content img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .content h1 {
+    font-size: 2rem;
+  }
+  
+  .content p {
+    font-size: 0.95rem;
+  }
+}
+section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  width: 1px;
+  height: 150px;
+  background: #e0e0e0;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 60px;
+  height: 1px;
+  background: #e0e0e0;
+  opacity: 0.6;
+}
